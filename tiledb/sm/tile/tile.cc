@@ -403,6 +403,15 @@ Status Tile::write(const void* data, uint64_t nbytes) {
   return Status::Ok();
 }
 
+Status Tile::write(const void* data, uint64_t offset, uint64_t nbytes) {
+  assert(!filtered());
+  offset_ = offset;
+  RETURN_NOT_OK(chunked_buffer_->write(data, nbytes, offset_));
+  offset_ += nbytes;
+
+  return Status::Ok();
+}
+
 Status Tile::zip_coordinates() {
   assert(dim_num_ > 0);
 

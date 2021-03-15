@@ -468,7 +468,7 @@ class Domain {
   std::vector<ByteVecValue> tile_extents() const;
 
   /**
-   * Returns the number of tiles contained in the input ND range.
+   * Returns the number of tiles intersecting the input ND range.
    * Returns 0 if even a single dimension has non-integral type.
    */
   uint64_t tile_num(const NDRange& ndrange) const;
@@ -477,7 +477,7 @@ class Domain {
    * Returns the number of cells in the input range.
    * If there is an overflow, then the function returns MAX_UINT64.
    * If at least one dimension had a non-integer domain, the
-   * functuon returns MAX_UINT64.
+   * function returns MAX_UINT64.
    */
   uint64_t cell_num(const NDRange& ndrange) const;
 

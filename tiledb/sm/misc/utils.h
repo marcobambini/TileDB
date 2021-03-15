@@ -292,6 +292,12 @@ void overlap(const T* a, const T* b, unsigned dim_num, T* o, bool* overlap);
 template <class T>
 double coverage(const T* a, const T* b, unsigned dim_num);
 
+/** Returns the intersection between r1 and r2. */
+template <class T>
+std::vector<std::array<T, 2>> intersection(
+    const std::vector<std::array<T, 2>>& r1,
+    const std::vector<std::array<T, 2>>& r2);
+
 }  // namespace geometry
 
 /* ********************************* */

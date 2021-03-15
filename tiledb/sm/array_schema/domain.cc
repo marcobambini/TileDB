@@ -946,7 +946,7 @@ void Domain::compute_tile_offsets() {
   tile_offsets_col_.push_back(1);
   if (dim_num_ > 1) {
     for (unsigned d = 1; d < dim_num_; ++d) {
-      tile_num = dimensions_[d]->tile_num(dimensions_[d]->domain());
+      tile_num = dimensions_[d - 1]->tile_num(dimensions_[d - 1]->domain());
       tile_offsets_col_.push_back(tile_offsets_col_.back() * tile_num);
     }
   }
@@ -956,7 +956,7 @@ void Domain::compute_tile_offsets() {
   tile_offsets_row_.push_back(1);
   if (dim_num_ > 1) {
     for (unsigned d = dim_num_ - 2;; --d) {
-      tile_num = dimensions_[d]->tile_num(dimensions_[d]->domain());
+      tile_num = dimensions_[d + 1]->tile_num(dimensions_[d + 1]->domain());
       tile_offsets_row_.push_back(tile_offsets_row_.back() * tile_num);
       if (d == 0)
         break;

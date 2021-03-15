@@ -331,6 +331,9 @@ class Tile {
   /** Writes `nbytes` from `data` to the tile. */
   Status write(const void* data, uint64_t nbytes);
 
+  /** Writes `nbytes` from `data` to the tile at `offset`. */
+  Status write(const void* data, uint64_t offset, uint64_t nbytes);
+
   /**
    * Zips the coordinate values such that a cell's coordinates across
    * all dimensions appear contiguously in the buffer.
