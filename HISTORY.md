@@ -8,10 +8,14 @@
 ## Breaking behavior
 
 ## New features
+* supporting serialization (using capnproto) build on windows [#2100](https://github.com/TileDB-Inc/TileDB/pull/2100)
+* Config option vfs.s3.sse for S3 server-side encryption support [#2130](https://github.com/TileDB-Inc/TileDB/pull/2130)
 * Name attribute/dimension files by index. This is fragment-specific and updates the format version to version 9. [#2107](https://github.com/TileDB-Inc/TileDB/pull/2107)
 * Smoke Test, remove nullable structs from global namespace. [#2078](https://github.com/TileDB-Inc/TileDB/pull/2078)
 
 ## Improvements
+* Two new parameters have been added to the config,  and , along with an edited  that uses these config timestamps rather than the previously used timestamp arguments in . [#2142](https://github.com/TileDB-Inc/TileDB/pull/2142)
+* Improve fragment info loading by parallelizing fragment_size requests [#2143](https://github.com/TileDB-Inc/TileDB/pull/2143)
 * Allow open array stats to be printed without read query [#2131](https://github.com/TileDB-Inc/TileDB/pull/2131)
 * Cleanup the GHA CI scripts - put common code into external shell scripts. [#2124](https://github.com/TileDB-Inc/TileDB/pull/2124)
 * Reduced memory consumption in the read path for multi-range reads. [#2118](https://github.com/TileDB-Inc/TileDB/pull/2118)
@@ -25,8 +29,11 @@
 * Consolidation functions now use the ctx's config if not config is passed [#2126](https://github.com/TileDB-Inc/TileDB/pull/2126)
 
 ## Deprecations
+* The following APIs have been deprecated: , , . [#2142](https://github.com/TileDB-Inc/TileDB/pull/2142)
 
 ## Bug fixes
+* Fixes a potential crash when retrying incomplete reads [#2137](https://github.com/TileDB-Inc/TileDB/pull/2137)
+* Fixes a potential crash when opening an array with consolidated fragment metadata [#2135](https://github.com/TileDB-Inc/TileDB/pull/2135)
 * Corrected a bug where sparse cells may be incorrectly returned using string dimensions. [#2125](https://github.com/TileDB-Inc/TileDB/pull/2125)
 * Fix segfault in serialized queries when partition is unsplittable [#2120](https://github.com/TileDB-Inc/TileDB/pull/2120)
 * Always use original buffer size in serialized read queries serverside. [#2115](https://github.com/TileDB-Inc/TileDB/pull/2115)
@@ -36,9 +43,11 @@
 ## API additions
 
 ### C API
+* Addition of  to directly assign a config to an array. [#2142](https://github.com/TileDB-Inc/TileDB/pull/2142)
 * Removes non-default parameter in tiledb_config_unset. [#2099](https://github.com/TileDB-Inc/TileDB/pull/2099)
 
 ### C++ API
+* Addition of  to directly assign a config to an array. [#2142](https://github.com/TileDB-Inc/TileDB/pull/2142)
 * Removes non-default parameter in Config::unset. [#2099](https://github.com/TileDB-Inc/TileDB/pull/2099)
 * Add support for a string-typed, variable-sized, nullable attribute in the C++ API. [#2090](https://github.com/TileDB-Inc/TileDB/pull/2090)
 
