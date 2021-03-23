@@ -15,6 +15,7 @@
 
 ## Improvements
 * Two new parameters have been added to the config,  and , along with an edited  that uses these config timestamps rather than the previously used timestamp arguments in . [#2142](https://github.com/TileDB-Inc/TileDB/pull/2142)
+* Added config option vfs.gcs.request_timeout_ms [#2148](https://github.com/TileDB-Inc/TileDB/pull/2148)
 * Improve fragment info loading by parallelizing fragment_size requests [#2143](https://github.com/TileDB-Inc/TileDB/pull/2143)
 * Allow open array stats to be printed without read query [#2131](https://github.com/TileDB-Inc/TileDB/pull/2131)
 * Cleanup the GHA CI scripts - put common code into external shell scripts. [#2124](https://github.com/TileDB-Inc/TileDB/pull/2124)
